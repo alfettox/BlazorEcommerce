@@ -1,6 +1,5 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using BlazorEcommerce29dec.Server.Data;
 
 namespace BlazorEcommerce29dec.Server.Controllers
 {

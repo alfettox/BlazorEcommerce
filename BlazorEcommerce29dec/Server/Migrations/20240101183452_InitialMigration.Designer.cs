@@ -3,6 +3,7 @@ using BlazorEcommerce29dec.Server.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BlazorEcommerce29dec.Server.Migrations
 {
     [DbContext(typeof(DataContext))]
-    partial class DataContextModelSnapshot : ModelSnapshot
+    [Migration("20240101183452_InitialMigration")]
+    partial class InitialMigration
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -260,10 +262,10 @@ namespace BlazorEcommerce29dec.Server.Migrations
                         .HasColumnType("int");
 
                     b.Property<decimal>("OriginalPrice")
-                        .HasColumnType("decimal(18,2)");
+                        .HasColumnType("decimal(18,2");
 
                     b.Property<decimal>("Price")
-                        .HasColumnType("decimal(18,2)");
+                        .HasColumnType("decimal(18,2");
 
                     b.HasKey("ProductId", "ProductTypeId");
 
@@ -407,7 +409,7 @@ namespace BlazorEcommerce29dec.Server.Migrations
             modelBuilder.Entity("BlazorEcommerce29dec.Shared.ProductVariant", b =>
                 {
                     b.HasOne("BlazorEcommerce29dec.Shared.Product", "Product")
-                        .WithMany("Variants")
+                        .WithMany("Variance")
                         .HasForeignKey("ProductId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -425,7 +427,7 @@ namespace BlazorEcommerce29dec.Server.Migrations
 
             modelBuilder.Entity("BlazorEcommerce29dec.Shared.Product", b =>
                 {
-                    b.Navigation("Variants");
+                    b.Navigation("Variance");
                 });
 #pragma warning restore 612, 618
         }

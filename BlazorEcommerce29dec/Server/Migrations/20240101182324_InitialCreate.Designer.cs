@@ -3,6 +3,7 @@ using BlazorEcommerce29dec.Server.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BlazorEcommerce29dec.Server.Migrations
 {
     [DbContext(typeof(DataContext))]
-    partial class DataContextModelSnapshot : ModelSnapshot
+    [Migration("20240101182324_InitialCreate")]
+    partial class InitialCreate
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -260,10 +262,10 @@ namespace BlazorEcommerce29dec.Server.Migrations
                         .HasColumnType("int");
 
                     b.Property<decimal>("OriginalPrice")
-                        .HasColumnType("decimal(18,2)");
+                        .HasColumnType("decimal(18,2");
 
                     b.Property<decimal>("Price")
-                        .HasColumnType("decimal(18,2)");
+                        .HasColumnType("decimal(18,2");
 
                     b.HasKey("ProductId", "ProductTypeId");
 
@@ -283,7 +285,7 @@ namespace BlazorEcommerce29dec.Server.Migrations
                         {
                             ProductId = 1,
                             ProductTypeId = 3,
-                            OriginalPrice = 7.99m,
+                            OriginalPrice = 0m,
                             Price = 7.99m
                         },
                         new
@@ -304,21 +306,21 @@ namespace BlazorEcommerce29dec.Server.Migrations
                         {
                             ProductId = 3,
                             ProductTypeId = 2,
-                            OriginalPrice = 14.99m,
+                            OriginalPrice = 0m,
                             Price = 6.99m
                         },
                         new
                         {
                             ProductId = 4,
                             ProductTypeId = 5,
-                            OriginalPrice = 14.99m,
+                            OriginalPrice = 0m,
                             Price = 3.99m
                         },
                         new
                         {
                             ProductId = 4,
                             ProductTypeId = 6,
-                            OriginalPrice = 14.99m,
+                            OriginalPrice = 0m,
                             Price = 9.99m
                         },
                         new
@@ -332,14 +334,14 @@ namespace BlazorEcommerce29dec.Server.Migrations
                         {
                             ProductId = 5,
                             ProductTypeId = 5,
-                            OriginalPrice = 14.99m,
+                            OriginalPrice = 0m,
                             Price = 3.99m
                         },
                         new
                         {
                             ProductId = 6,
                             ProductTypeId = 5,
-                            OriginalPrice = 14.99m,
+                            OriginalPrice = 0m,
                             Price = 2.99m
                         },
                         new
@@ -374,7 +376,7 @@ namespace BlazorEcommerce29dec.Server.Migrations
                         {
                             ProductId = 9,
                             ProductTypeId = 8,
-                            OriginalPrice = 14.99m,
+                            OriginalPrice = 0m,
                             Price = 14.99m
                         },
                         new
@@ -407,7 +409,7 @@ namespace BlazorEcommerce29dec.Server.Migrations
             modelBuilder.Entity("BlazorEcommerce29dec.Shared.ProductVariant", b =>
                 {
                     b.HasOne("BlazorEcommerce29dec.Shared.Product", "Product")
-                        .WithMany("Variants")
+                        .WithMany("Variance")
                         .HasForeignKey("ProductId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -425,7 +427,7 @@ namespace BlazorEcommerce29dec.Server.Migrations
 
             modelBuilder.Entity("BlazorEcommerce29dec.Shared.Product", b =>
                 {
-                    b.Navigation("Variants");
+                    b.Navigation("Variance");
                 });
 #pragma warning restore 612, 618
         }
