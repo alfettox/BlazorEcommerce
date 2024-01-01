@@ -1,6 +1,6 @@
 ﻿@* @inject HttpClient Http *@
 @inject IProductService ProductService;
-
+@implements IDisposable
 
 @* @if (ProductService.products == null || ProductService.products.Count == 0) *@
 @if (ProductService.products?.Count == 0)
@@ -38,15 +38,22 @@ else
 @code {
     // private static List<Product> Products = new List<Product>();
 
-    protected override async Task OnInitializedAsync()
+    // protected override async Task OnInitializedAsync()
+    protected override void OnInitialized()
     {
         // var result =
         // await Http.GetFromJsonAsync<ServiceResponse<List<Product>>>("api/product");
-        await ProductService.GetProducts();
         //     if (result != null && result.Data != null)
-        // {
-        //     Products = result.Data;
-        // }
+        // {Products = result.Data;}
+
+        // await ProductService.GetProducts(); 
+        // now we subscribe to the event instead
+        ProductService.ProductsChanged += StateHasChanged; //when event is invoked there is a notification
+    }
+
+    public void Dispose()
+    {
+        ProductService.ProductsChanged -= StateHasChanged;
     }
 
 }

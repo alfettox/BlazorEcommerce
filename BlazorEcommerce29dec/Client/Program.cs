@@ -1,6 +1,7 @@
 global using BlazorEcommerce29dec.Shared;
-global using BlazorEcommerce29dec.Client.Services.ProductService;
 global using System.Net.Http.Json;
+global using BlazorEcommerce29dec.Client.Services.ProductService;
+global using BlazorEcommerce29dec.Client.Services.CategoryService;
 
 using BlazorEcommerce29dec.Client;
 using Microsoft.AspNetCore.Components.Web;
@@ -10,7 +11,9 @@ var builder = WebAssemblyHostBuilder.CreateDefault(args);
 builder.RootComponents.Add<App>("#app");
 builder.RootComponents.Add<HeadOutlet>("head::after");
 
+
 builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
 builder.Services.AddScoped<IProductService, ProductService>();
+builder.Services.AddScoped<ICategoryService, CategoryService>();
 
 await builder.Build().RunAsync();
