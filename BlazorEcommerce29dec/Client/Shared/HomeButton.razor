@@ -1,0 +1,10 @@
+﻿@inject NavigationManager NavigationManager
+
+<buttoin @onclick="GoToHome" class="btn btn-outline-primary home-button">HOME</buttoin>
+
+@code {
+    private void GoToHome(MouseEventArgs e)
+    {
+        NavigationManager.NavigateTo("");
+    }
+}

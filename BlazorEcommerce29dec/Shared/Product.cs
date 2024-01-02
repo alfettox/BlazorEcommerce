@@ -23,5 +23,8 @@ namespace BlazorEcommerce29dec.Shared
         public List<ProductVariant> Variants { get; set; } =
             new List<ProductVariant>();
 
+
+        public bool Featured { get; set; } = false;
+
     }
 }
